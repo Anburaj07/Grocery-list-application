@@ -143,6 +143,7 @@ export default class GroceryList extends Component {
     return (
       <DIV>
         <div id="left">
+          <Heading>Add/update Grocery </Heading>
           <FormControl isRequired>
             <FormLabel>Name</FormLabel>
             <Input
@@ -209,6 +210,7 @@ export default class GroceryList extends Component {
             <li key={el.id}>
               <img src={el.image} alt="" /> {el.name} - Qty: {el.qty} - Price: $
               {el.price}
+              <div>
               <Button id="edit" onClick={() => this.handleEditGrocery(el.id)}>
                 Edit
               </Button>
@@ -218,6 +220,7 @@ export default class GroceryList extends Component {
               >
                 Delete
               </Button>
+              </div>
             </li>
           ))}
           </GRID>
@@ -288,6 +291,7 @@ const DIV = styled.div`
       #edit {
         background-color: green;
         padding: 15px;
+        margin-right: 20px;
       }
       #delete {
         background-color: red;

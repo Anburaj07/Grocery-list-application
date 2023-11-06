@@ -17,43 +17,43 @@
       "image": "https://img.freepik.com/free-vector/banana-white-background_1308-21517.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph"
     },
     {
-      "id": 3,
       "name": "Orange",
       "qty": 2,
       "price": 1.5,
       "description": "Sweet oranges",
-      "image": "https://img.freepik.com/free-vector/orange-fruit-slice-with-leaves_1308-21938.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph"
+      "image": "https://img.freepik.com/free-vector/watercolor-orange-background_52683-10330.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph",
+      "id": 3
     },
     {
-      "id": 5,
       "name": "Milk",
       "qty": 1,
       "price": 3,
       "description": "Whole milk",
-      "image": "https://img.freepik.com/free-vector/milk-carton_1284-2188.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph"
+      "image": "https://img.freepik.com/free-vector/bottle-glass-milk_1284-14094.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph",
+      "id": 5
     },
     {
-      "id": 6,
       "name": "Eggs",
       "qty": 1,
       "price": 2,
       "description": "Dozen eggs",
-      "image": "https://img.freepik.com/free-vector/chicken-egg-group-isolated_1308-22679.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph"
+      "image": "https://img.freepik.com/free-psd/eggs-packaging-icon-isolated-3d-render-illustration_47987-8313.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph",
+      "id": 6
     },
     {
-      "id": 7,
       "name": "Bread",
       "qty": 1,
       "price": 1,
       "description": "White bread",
-      "image": "https://img.freepik.com/free-vector/sliced-bread-isolated_1284-1954.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph"
+      "image": "https://img.freepik.com/free-photo/close-up-sandwich_176474-2469.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph",
+      "id": 7
     },
     {
       "name": "SAHA Shirts",
       "qty": "5",
       "price": "25",
       "description": "",
-      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      "image": "https://img.freepik.com/premium-photo/blue-shirt-white-isolated_267651-1565.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph",
       "id": 8
     }
   ]
