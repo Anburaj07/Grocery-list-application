@@ -1,12 +1,12 @@
 {
   "groceries": [
     {
-      "id": 1,
       "name": "Apple",
       "qty": 5,
-      "price": 2.5,
+      "price": "5",
       "description": "Fresh apples",
-      "image": "https://img.freepik.com/free-vector/realistic-fresh-red-apple-with-drops_1284-39957.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph"
+      "image": "https://img.freepik.com/free-vector/realistic-fresh-red-apple-with-drops_1284-39957.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph",
+      "id": 1
     },
     {
       "id": 2,
@@ -23,14 +23,6 @@
       "price": 1.5,
       "description": "Sweet oranges",
       "image": "https://img.freepik.com/free-vector/orange-fruit-slice-with-leaves_1308-21938.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph"
-    },
-    {
-      "name": "Grape",
-      "qty": 1,
-      "price": "20",
-      "description": "Red grapes",
-      "image": "https://img.freepik.com/free-vector/realistic-red-grapes-bunch-isolated_102885-1772.jpg?size=626&ext=jpg&ga=GA1.1.1162169027.1699254330&semt=sph",
-      "id": 4
     },
     {
       "id": 5,

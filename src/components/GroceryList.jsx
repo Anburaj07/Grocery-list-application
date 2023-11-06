@@ -23,19 +23,19 @@ export default class GroceryList extends Component {
   };
 
   componentDidMount() {
+    this.fetchGroceries();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState.currentPage, this.state.currentPage);
+    if (prevState.currentPage != this.state.currentPage) {
       this.fetchGroceries();
     }
+  }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log(prevState.currentPage,this.state.currentPage)
-        if (prevState.currentPage != this.state.currentPage) {
-            this.fetchGroceries();
-        }
-    }
-    
-    fetchGroceries = () => {
-        const { currentPage } = this.state;
-        console.log('currentPage:', currentPage)
+  fetchGroceries = () => {
+    const { currentPage } = this.state;
+    console.log("currentPage:", currentPage);
     axios
       .get(`http://localhost:8080/groceries?_page=${currentPage}&_limit=4`)
       .then((res) => {
@@ -79,7 +79,7 @@ export default class GroceryList extends Component {
   };
 
   handleEditGrocery = (id) => {
-    const grocery = this.state.groceries.find(item => item.id === id);
+    const grocery = this.state.groceries.find((item) => item.id === id);
     this.setState({
       editingGroceryId: id,
       name: grocery.name,
@@ -91,31 +91,40 @@ export default class GroceryList extends Component {
   };
 
   handleUpdateGrocery = () => {
-    const { editingGroceryId, name, qty, price, description, image } = this.state;
-    axios.put(`http://localhost:8080/groceries/${editingGroceryId}`, { name, qty, price, description, image })
+    const { editingGroceryId, name, qty, price, description, image } =
+      this.state;
+    axios
+      .put(`http://localhost:8080/groceries/${editingGroceryId}`, {
+        name,
+        qty,
+        price,
+        description,
+        image,
+      })
       .then(() => {
         this.fetchGroceries();
         this.setState({
           editingGroceryId: null,
-          name: '',
-          qty: '',
-          price: '',
-          description: '',
-          image: '',
+          name: "",
+          qty: "",
+          price: "",
+          description: "",
+          image: "",
         });
       })
-      .catch(error => {
-        console.error('Error updating grocery:', error);
+      .catch((error) => {
+        console.error("Error updating grocery:", error);
       });
   };
 
   handleDeleteGrocery = (id) => {
-    axios.delete(`http://localhost:3000/groceries/${id}`)
+    axios
+      .delete(`http://localhost:8080/groceries/${id}`)
       .then(() => {
         this.fetchGroceries();
       })
-      .catch(error => {
-        console.error('Error deleting grocery:', error);
+      .catch((error) => {
+        console.error("Error deleting grocery:", error);
       });
   };
 
@@ -195,14 +204,24 @@ export default class GroceryList extends Component {
 
         <ul id="right">
           <Heading>Grocery List</Heading>
+          <GRID>
           {groceries.map((el) => (
             <li key={el.id}>
-              {el.name} - Qty: {el.qty} - Price: ${el.price}
-              <Button onClick={() => this.handleEditGrocery(el.id)}>Edit</Button>
-              <Button onClick={() => this.handleDeleteGrocery(el.id)}>Delete</Button>
+              <img src={el.image} alt="" /> {el.name} - Qty: {el.qty} - Price: $
+              {el.price}
+              <Button id="edit" onClick={() => this.handleEditGrocery(el.id)}>
+                Edit
+              </Button>
+              <Button
+                id="delete"
+                onClick={() => this.handleDeleteGrocery(el.id)}
+              >
+                Delete
+              </Button>
             </li>
           ))}
-          <div style={{ marginTop: "15px" }}>
+          </GRID>
+          <PAGINATION>
             <button
               disabled={currentPage == 1}
               onClick={() => this.setState({ currentPage: currentPage - 1 })}
@@ -218,7 +237,7 @@ export default class GroceryList extends Component {
             >
               Next
             </button>
-          </div>
+          </PAGINATION>
         </ul>
       </DIV>
     );
@@ -229,7 +248,15 @@ const DIV = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 1%;
-  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 220px;
+  color: #0c0f3a;
+  ::placeholder {
+    color: #0c0f3a;
+  }
+  label {
+    margin-top: 15px;
+  }
   #left {
     width: 40%;
     /* border: 1px solid red; */
@@ -240,21 +267,50 @@ const DIV = styled.div`
     }
   }
   #right {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 50%;
     li {
       display: flex;
-      justify-content: space-around;
+      margin: auto;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       padding: 10px;
       margin-top: 10px;
-      border: 1px solid red;
+      margin-bottom: 10px;
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      /* background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%); */
+      background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+      img {
+        width: 50%;
+      }
+      #edit {
+        background-color: green;
+        padding: 15px;
+      }
+      #delete {
+        background-color: red;
+      }
     }
-    button{
-        background-color: grey;
-        padding: 10px;
-        color: white;
-        border-radius: 10px;
+    button {
+      background-color: #504c4c;
+      padding: 10px;
+      color: white;
+      border-radius: 10px;
     }
   }
 `;
 
+const PAGINATION = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+`;
+
+const GRID=styled.div`
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    
+`
