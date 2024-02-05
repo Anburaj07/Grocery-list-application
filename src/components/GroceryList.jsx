@@ -206,23 +206,26 @@ export default class GroceryList extends Component {
         <ul id="right">
           <Heading>Grocery List</Heading>
           <GRID>
-          {groceries.map((el) => (
-            <li key={el.id}>
-              <img src={el.image} alt="" /> {el.name} - Qty: {el.qty} - Price: $
-              {el.price}
-              <div>
-              <Button id="edit" onClick={() => this.handleEditGrocery(el.id)}>
-                Edit
-              </Button>
-              <Button
-                id="delete"
-                onClick={() => this.handleDeleteGrocery(el.id)}
-              >
-                Delete
-              </Button>
-              </div>
-            </li>
-          ))}
+            {groceries.map((el) => (
+              <li key={el.id}>
+                <img src={el.image} alt="" /> {el.name} - Qty: {el.qty} - Price:
+                ${el.price}
+                <div>
+                  <Button
+                    id="edit"
+                    onClick={() => this.handleEditGrocery(el.id)}
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    id="delete"
+                    onClick={() => this.handleDeleteGrocery(el.id)}
+                  >
+                    Delete
+                  </Button>
+                </div>
+              </li>
+            ))}
           </GRID>
           <PAGINATION>
             <button
@@ -312,9 +315,8 @@ const PAGINATION = styled.div`
   justify-content: space-around;
 `;
 
-const GRID=styled.div`
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 20px;
-    
-`
+const GRID = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+`;
